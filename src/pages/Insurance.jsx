@@ -6,7 +6,7 @@ import Footer from "../components/Footer";
 const CONTRACT_ADDRESS =
   "0x5f5fcd92381888357cfd85ed7ad4fae06dc6c7e3";
 
-const BACKEND_URL = "http://localhost:5000";
+const BACKEND_URL = "https://flightguard-pznf.onrender.com";
 
 const SEPOLIA_CHAIN_ID = 11155111;
 
