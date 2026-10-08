@@ -1,147 +1,920 @@
-# INNOBLOCK 2.0 · Starter Kit
+# ✈️ FlightGuard — Blockchain-Based Flight Delay Insurance
 
-**5–7 October 2026 · GCET · Teams of 2–4 · Testnets only · Organised by the GCET Blockchain Club**
+> A decentralized parametric flight-delay insurance platform that uses smart contracts, blockchain, a mock oracle, AI-assisted risk assessment, and automated claim processing.
 
-Clone this repo and you have a working dApp from minute one: a smart contract, a Python backend and a web page that write to a blockchain testnet and prove records were never changed. Spend the hackathon on your idea, not on boilerplate.
+## 🏆 Hackathon Project
 
-This page is the summary. The full **participant handbook** is [INNOBLOCK-2.0-Handbook.pdf](INNOBLOCK-2.0-Handbook.pdf) (10 pages), and every step is covered in detail, with screenshots, in five guides in [`docs/`](docs/), each also available as a PDF. Announcements: [@gcet_blockchain](https://www.instagram.com/gcet_blockchain/) on Instagram.
+**INNOBLOCK 2.0 — Blockchain Hackathon**
 
-## The three days
+---
 
-| Day | Date | What happens | Walk out with |
-| --- | --- | --- | --- |
-| **Day 1 · Guest lecture** | Mon 5 Oct | Guest lecture, problem statements handed out, team ideation | A chosen problem statement, a one-line idea, and everything in [Before you arrive](#before-you-arrive) done |
-| **Day 2 · Build** | Tue 6 Oct | The whole day is yours to build | Contract deployed, app live, full flow tested |
-| **Day 3 · Judgment day** | Wed 7 Oct | Pitches and live demos before the judges | A tight pitch, a working demo, a submitted repo |
+## 🚀 Live Demo
 
-## Before you arrive
+🌐 **FlightGuard Application:**  
+https://flightguard-1.onrender.com
 
-Do this before Day 2, ideally tonight. Installs and faucet waits are the most common way teams lose their build morning.
+💻 **GitHub Repository:**  
+https://github.com/sunny347hub/flightguard
 
-- [ ] **Laptop**: Chrome, Brave or Edge with [MetaMask](https://metamask.io); in MetaMask, Settings → Advanced → **Show test networks** on
-- [ ] **A new wallet just for the hackathon** (a "burner"). Never use one that has held real money
-- [ ] **Python 3.10+** and **Git** installed (`python --version`, `git --version`)
-- [ ] **Test tokens** in your wallet. For Sepolia, these work with a new wallet: [QuickNode](https://faucet.quicknode.com/ethereum/sepolia), [Google Cloud](https://cloud.google.com/application/web3/faucet/ethereum/sepolia), [PoW faucet](https://sepolia-faucet.pk910.de). One teammate can share with the rest
-- [ ] **The starter installed**: clone this repo and run step 2 of the [Quick start](#quick-start). If `pip install` works tonight, it works tomorrow
-- [ ] **Free accounts**, one per team: [GitHub](https://github.com), [Render](https://render.com), [Vercel](https://vercel.com) or [Netlify](https://netlify.com), [Neon](https://neon.tech) or [Supabase](https://supabase.com), [UptimeRobot](https://uptimerobot.com), and an AI provider if your idea uses AI
+🔗 **Blockchain Network:** Ethereum Sepolia Testnet
 
-Step by step, with a 10-minute self-test: [docs/01-setup.md](docs/01-setup.md).
+---
 
-## Minimum to be judged
+## 🎯 Problem Statement
 
-- [ ] A smart contract deployed on a **public testnet**, its address in your README and on your first slide
-- [ ] At least one transaction from your app visible on the network's **block explorer**
-- [ ] A web page that connects a wallet and shows each transaction's status (pending / confirmed / failed)
-- [ ] A **public GitHub repo** with a README: setup steps and how to test
+Traditional flight-delay insurance can require passengers to submit claims manually, provide supporting information, wait for verification, and wait for compensation.
 
-Extras (AI, a database, a polished UI) earn marks, but only once the minimum works.
+This creates:
 
-## Ground rules
+- Manual claim processing
+- Long waiting times
+- Additional paperwork
+- Lack of transparency
+- Difficult claim verification
+- Delayed compensation
 
-- **Testnets only.** Any public testnet is allowed. The starter supports five EVM testnets out of the box (below), and any other EVM testnet takes one config entry. Never mainnet, never real money.
-- **Burner wallets only.** Make a fresh wallet for the hackathon. Never use one that has held real funds.
-- **AI is allowed**, both as a coding assistant and inside your app, with any provider you like.
-- **The starter is optional.** Swap any part (Hardhat or Foundry, React, a Node backend) if your team prefers. You're judged on what you build on top.
-- **Every member should be able to explain their part.** Judges will ask.
+FlightGuard addresses this problem using programmable, condition-based insurance rules implemented through blockchain smart contracts.
 
-## Quick start
+---
 
-You need Python 3.10+, Git, and a browser with MetaMask. Full walkthrough: [docs/02-build.md](docs/02-build.md).
+## 💡 Our Solution
 
-```bash
-git clone https://github.com/murthyroshan/innoblock-2.0-starter.git
-cd innoblock-2.0-starter
+FlightGuard is a blockchain-based flight-delay insurance platform where compensation eligibility is determined using predefined flight-delay conditions.
+
+Instead of requiring a passenger to manually submit a claim after a qualifying delay, the system follows a parametric insurance model:
+
+```text
+Customer buys policy
+        ↓
+Policy recorded on blockchain
+        ↓
+Flight delay information received
+        ↓
+Oracle updates delay on blockchain
+        ↓
+Smart contract checks policy threshold
+        ↓
+Eligible?
+   ┌────┴────┐
+  YES        NO
+   ↓          ↓
+Payout     No payout
+   ↓
+Policy settled
 ```
 
-**1. Deploy the contract.** [Open it in Remix](https://remix.ethereum.org/#url=https://raw.githubusercontent.com/murthyroshan/innoblock-2.0-starter/main/contracts/RecordRegistry.sol) (one click), compile, then in **Deploy & run** set Environment to **Browser Extension → MetaMask** and deploy on your testnet. Copy the contract address.
+---
 
-**2. Run the backend.**
+# 🔗 How Blockchain Is Used
+
+FlightGuard uses the **Ethereum Sepolia public testnet** for its blockchain layer.
+
+The deployed `FlightInsurance` smart contract is responsible for:
+
+- Creating insurance policies
+- Recording policy details
+- Storing premium and coverage values
+- Storing delay thresholds
+- Receiving flight-delay information
+- Determining policy eligibility
+- Processing eligible payouts
+- Tracking whether a policy has been paid
+- Closing a policy after settlement
+
+### Why Blockchain?
+
+Blockchain provides:
+
+- Transparent policy rules
+- Publicly verifiable transactions
+- Tamper-resistant records
+- Programmable insurance conditions
+- Traceable payouts
+- Reduced dependence on manual claim verification
+
+---
+
+# ⛓️ Blockchain Deployment
+
+### Network
+
+**Ethereum Sepolia Testnet**
+
+### Chain ID
+
+`11155111`
+
+### Smart Contract
+
+`0x5F5FCd92381888357cfD85Ed7Ad4FAE06Dc6c7e3`
+
+### Contract Explorer
+
+https://sepolia.etherscan.io/address/0x5F5FCd92381888357cfD85Ed7Ad4FAE06Dc6c7e3
+
+> ⚠️ This project uses Ethereum Sepolia testnet tokens only. No real-money transactions are used.
+
+---
+
+# 📡 Oracle Architecture
+
+A blockchain smart contract cannot directly access real-world flight information from an airline website or external API.
+
+FlightGuard therefore uses an **oracle layer** to bring flight-delay information from the off-chain environment into the blockchain.
+
+For the hackathon implementation, we use a **Mock Oracle**.
+
+### Mock Oracle Flow
+
+```text
+Flight / Mock Flight Data
+          ↓
+      Backend
+          ↓
+    Oracle API
+          ↓
+updateFlightDelay()
+          ↓
+Ethereum Sepolia
+          ↓
+FlightInsurance Contract
+```
+
+The mock oracle provides information such as:
+
+- Flight number
+- Flight status
+- Delay duration
+- Flight-related information
+
+The most important value for the smart contract is the **actual delay in minutes**.
+
+### Example
+
+```text
+Policy threshold = 60 minutes
+Actual flight delay = 90 minutes
+
+90 >= 60
+      ↓
+Eligible = TRUE
+      ↓
+Payout can be processed
+```
+
+> The mock oracle is used for the hackathon demonstration. In a production system, it can be replaced with a trusted real-time flight data API or decentralized oracle infrastructure.
+
+---
+
+# 📜 Smart Contract
+
+The project uses a Solidity smart contract called:
+
+`FlightInsurance`
+
+The contract stores policies using a `Policy` structure.
+
+### Policy Information
+
+Each policy contains:
+
+- Policy ID
+- Customer wallet address
+- Flight number
+- Insurance plan
+- Premium
+- Coverage amount
+- Delay threshold
+- Actual delay
+- Active status
+- Eligibility status
+- Payment status
+
+### Main Smart Contract Functions
+
+#### `buyPolicy()`
+
+Creates a new insurance policy and receives the policy premium.
+
+```text
+buyPolicy(
+    flightNumber,
+    plan,
+    premium,
+    coverage,
+    delayThreshold
+)
+```
+
+#### `getPolicy()`
+
+Retrieves the complete details of a policy.
+
+#### `updateFlightDelay()`
+
+Updates the actual flight delay received from the oracle.
+
+```text
+updateFlightDelay(
+    policyId,
+    actualDelay
+)
+```
+
+The smart contract compares the actual delay against the policy threshold.
+
+#### `processPayout()`
+
+Processes the coverage payout when the policy is eligible.
+
+```text
+processPayout(policyId)
+```
+
+#### `policyCount()`
+
+Returns the number of policies created.
+
+---
+
+# 💰 Premium and Payout Model
+
+The customer pays a premium when purchasing an insurance policy.
+
+For example, one of our Standard policies used:
+
+```text
+Premium   = 0.001 ETH
+Coverage  = 0.005 ETH
+Threshold = 60 minutes
+```
+
+The smart contract balance acts as the payout pool for eligible claims.
+
+### Example Policy
+
+```text
+Flight: AI303
+Plan: Standard
+Premium: 0.001 ETH
+Coverage: 0.005 ETH
+Delay Threshold: 60 minutes
+Actual Delay: 90 minutes
+```
+
+Since:
+
+```text
+90 >= 60
+```
+
+the policy becomes eligible.
+
+After payout:
+
+```text
+eligible = true
+paid = true
+active = false
+```
+
+---
+
+# 🏦 Policy Contract & Premium Pool
+
+Conceptually, the system has two core responsibilities:
+
+### 1. Insurance Policy Management
+
+The smart contract:
+
+- Stores policy information
+- Stores the delay threshold
+- Receives oracle delay information
+- Checks eligibility
+- Processes payouts
+- Tracks policy status
+
+### 2. Payout Fund Management
+
+The smart contract balance:
+
+- Receives policy premiums
+- Holds testnet ETH
+- Provides funds for eligible payouts
+- Supports the premium-to-claim demonstration
+
+For the hackathon implementation, these responsibilities are **consolidated into one `FlightInsurance` smart contract** instead of deploying separate policy and premium-pool contracts.
+
+This keeps the architecture simpler while preserving the complete insurance workflow.
+
+---
+
+# 🧠 AI-Assisted Risk Assessment
+
+FlightGuard includes an AI-assisted risk assessment feature.
+
+The AI layer analyzes policy and delay information and provides a risk assessment that can help explain the likelihood of a claim.
+
+Example:
+
+```text
+HIGH CLAIM RISK:
+The recorded delay meets or exceeds the policy threshold.
+```
+
+The AI component is an **assessment layer**.
+
+It does not directly transfer funds or override the smart contract.
+
+The blockchain smart contract remains responsible for the actual policy eligibility and payout logic.
+
+### Demo AI Mode
+
+The project supports a demo/fallback AI mode when an external AI API key is not configured.
+
+This allows the hackathon prototype to demonstrate the AI functionality without exposing API credentials in the frontend.
+
+---
+
+# 🗄️ Database
+
+FlightGuard uses **PostgreSQL through Neon** for application-level data.
+
+The database is used alongside the blockchain rather than replacing it.
+
+### Database Responsibilities
+
+The database can store application information such as:
+
+- Customer records
+- Flight information
+- Policy application records
+- Blockchain transactions
+- AI decisions
+- Customer feedback
+
+### Blockchain vs Database
+
+| Blockchain | Database |
+|---|---|
+| Policy state | Application data |
+| Smart contract rules | Flight information |
+| Blockchain transactions | AI decisions |
+| Eligibility state | Customer feedback |
+| Payout transactions | Supporting records |
+| Public verification | Fast application queries |
+
+The blockchain provides the trust and verification layer, while the database provides efficient application-level storage.
+
+---
+
+# 🏗️ System Architecture
+
+```text
+                         FLIGHTGUARD
+                              │
+                              ↓
+                     React Web Application
+                              │
+                    ┌─────────┴─────────┐
+                    │                   │
+                 MetaMask            Backend
+                    │                   │
+                    │            Flask + Web3.py
+                    │                   │
+                    │          ┌────────┴─────────┐
+                    │          │                  │
+                    │       PostgreSQL         Mock Oracle
+                    │          │                  │
+                    │          │          Flight Delay Data
+                    │          │                  │
+                    └──────────┴──────────┬───────┘
+                                         ↓
+                              Ethereum Sepolia
+                                         │
+                                         ↓
+                              FlightInsurance
+                                Smart Contract
+                                         │
+                               ┌─────────┴─────────┐
+                               │                   │
+                         Policy Logic          Payout Logic
+                               │                   │
+                               └─────────┬─────────┘
+                                         ↓
+                                  Customer Wallet
+```
+
+---
+
+# 🛠️ Technology Stack
+
+### Frontend
+
+- React
+- Vite
+- JavaScript
+- Tailwind CSS
+- MetaMask
+
+### Blockchain
+
+- Ethereum Sepolia
+- Solidity
+- Smart Contracts
+- Web3
+- Etherscan
+
+### Backend
+
+- Python
+- Flask
+- Web3.py
+- Flask-CORS
+- Gunicorn
+
+### Database
+
+- PostgreSQL
+- Neon
+
+### AI
+
+- AI-assisted risk assessment
+- Configurable external AI API
+- Demo fallback mode
+
+### Deployment
+
+- Render
+- GitHub
+- Neon PostgreSQL
+
+---
+
+# 🌐 Deployment Architecture
+
+The project is deployed as separate frontend and backend services.
+
+```text
+                    GitHub Repository
+                           │
+              ┌────────────┴────────────┐
+              ↓                         ↓
+        Render Frontend            Render Backend
+              │                         │
+              ↓                         ↓
+      React/Vite Website          Flask API
+                                        │
+                              ┌─────────┴─────────┐
+                              ↓                   ↓
+                         Neon PostgreSQL    Ethereum Sepolia
+```
+
+### Frontend
+
+https://flightguard-1.onrender.com
+
+### Backend
+
+https://flightguard-pznf.onrender.com
+
+---
+
+# 🔄 Complete User Flow
+
+### Step 1 — Connect Wallet
+
+The customer connects MetaMask to the FlightGuard application.
+
+### Step 2 — Enter Flight Details
+
+The customer provides information such as:
+
+- Flight number
+- Airline
+- Departure airport
+- Arrival airport
+- Travel date
+
+### Step 3 — Select Insurance Plan
+
+The customer selects a protection plan.
+
+Example:
+
+```text
+Standard
+Premium: 0.001 ETH
+Coverage: 0.005 ETH
+Delay Trigger: 60 minutes
+```
+
+### Step 4 — AI Assessment
+
+The application can run an AI-assisted risk assessment.
+
+### Step 5 — Purchase Policy
+
+The customer confirms the transaction through MetaMask.
+
+The policy is created on the Ethereum Sepolia blockchain.
+
+### Step 6 — Flight Delay Update
+
+The mock oracle/backend provides the actual delay.
+
+Example:
+
+```text
+Actual delay = 90 minutes
+```
+
+### Step 7 — Smart Contract Evaluation
+
+The smart contract checks:
+
+```text
+Actual Delay >= Delay Threshold
+```
+
+Example:
+
+```text
+90 >= 60
+```
+
+Result:
+
+```text
+Eligible = TRUE
+```
+
+### Step 8 — Payout
+
+The eligible policy's coverage amount can be processed through the smart contract.
+
+### Step 9 — Verification
+
+The blockchain transaction can be verified through the Sepolia block explorer.
+
+---
+
+# 🧪 Demonstrated Blockchain Example
+
+One demonstrated policy used the following values:
+
+```text
+Policy ID: 4
+Flight: AI303
+Plan: Standard
+Premium: 0.001 ETH
+Coverage: 0.005 ETH
+Delay Threshold: 60 minutes
+Actual Delay: 90 minutes
+Eligible: Yes
+Paid: Yes
+Active: No
+```
+
+This demonstrates the complete policy lifecycle:
+
+```text
+Purchase
+   ↓
+Policy Created
+   ↓
+Oracle Delay Update
+   ↓
+Eligibility Check
+   ↓
+Payout
+   ↓
+Policy Settled
+```
+
+---
+
+# 🔐 Security
+
+Sensitive information is kept outside the public repository.
+
+The project uses environment variables for:
+
+- Private blockchain key
+- Database connection string
+- AI API key
+- RPC configuration
+
+Sensitive `.env` files are excluded using `.gitignore`.
+
+### Never commit:
+
+```text
+.env
+Private keys
+Seed phrases
+Wallet passwords
+Database passwords
+API keys
+```
+
+> The deployed project uses a dedicated testnet wallet and Ethereum Sepolia testnet funds.
+
+---
+
+# 🧑‍💻 Local Development
+
+## Prerequisites
+
+Install:
+
+- Git
+- Node.js
+- Python 3.10+
+- MetaMask
+- A Sepolia testnet wallet
+
+Clone the repository:
+
+```bash
+git clone https://github.com/sunny347hub/flightguard.git
+cd flightguard
+```
+
+---
+
+## Frontend Setup
+
+Install dependencies:
+
+```bash
+npm install
+```
+
+Start the frontend:
+
+```bash
+npm run dev
+```
+
+The application will normally be available at:
+
+```text
+http://localhost:5173
+```
+
+---
+
+## Backend Setup
+
+Move into the backend directory:
 
 ```bash
 cd backend
-python -m venv venv
-venv\Scripts\activate            # Mac/Linux: source venv/bin/activate
-pip install -r requirements.txt
-copy .env.example .env           # Mac/Linux: cp .env.example .env
-# edit .env: PRIVATE_KEY, RPC_URL, CONTRACT_ADDRESS, EXPLORER_URL
-python app.py                    # http://localhost:5000/health should say "ok": true
 ```
 
-**3. Run the frontend.** Set `ACTIVE_NETWORK` and `CONTRACT_ADDRESS` in [`frontend/config.js`](frontend/config.js), then in a second terminal:
+Create a virtual environment:
+
+### Windows PowerShell
+
+```powershell
+python -m venv .venv
+```
+
+Activate it:
+
+```powershell
+.\.venv\Scripts\Activate.ps1
+```
+
+Install dependencies:
 
 ```bash
-cd frontend
-python -m http.server 8000       # open http://localhost:8000
+pip install -r requirements.txt
 ```
 
-Connect your wallet, store a record, ask the AI, verify. Then make it yours.
+Create a `.env` file using `.env.example` as a reference.
 
-## What's in the box
+The backend requires configuration for:
 
 ```text
-innoblock-2.0-starter/
-├── contracts/RecordRegistry.sol   stores a hash per record, emits an event, verifies
-├── backend/                       Flask + web3.py: AI call, signs transactions, saves records
-│   ├── app.py
-│   ├── abi.json                   contract interface (re-copy from Remix if you change the contract)
-│   ├── requirements.txt
-│   └── .env.example               every setting, with examples for each network and AI provider
-├── frontend/                      plain HTML + JS + ethers.js v6, no build step
-│   ├── config.js                  the only file you must edit: network, contract, backend URL
-│   ├── app.js
-│   ├── index.html
-│   └── style.css
-└── docs/                          five detailed guides (PDF copies in docs/pdf/)
+RPC_URL
+PRIVATE_KEY
+CONTRACT_ADDRESS
+EXPLORER_URL
+DATABASE_URL
+FRONTEND_ORIGIN
+API_KEY
+AI_BASE_URL
+AI_MODEL
 ```
 
-The demo app shows the core pattern: **keep the full record off-chain, put its fingerprint (hash) on-chain**, and let anyone prove the record wasn't changed. It works for AI decisions, certificates, land records, medical reports, trade signals and more. See [docs/02-build.md](docs/02-build.md#how-the-starter-works).
+Start the backend:
 
-## Supported networks
+```bash
+python app.py
+```
 
-| Network | Chain ID | Currency | Explorer |
-| --- | --- | --- | --- |
-| **Ethereum Sepolia** (default) | 11155111 | ETH | [sepolia.etherscan.io](https://sepolia.etherscan.io) |
-| Base Sepolia | 84532 | ETH | [sepolia.basescan.org](https://sepolia.basescan.org) |
-| Polygon Amoy | 80002 | POL | [amoy.polygonscan.com](https://amoy.polygonscan.com) |
-| Arbitrum Sepolia | 421614 | ETH | [sepolia.arbiscan.io](https://sepolia.arbiscan.io) |
-| OP Sepolia | 11155420 | ETH | [sepolia-optimism.etherscan.io](https://sepolia-optimism.etherscan.io) |
+The backend runs locally on:
 
-Faucets for every network, RPC URLs and how to switch: [docs/01-setup.md](docs/01-setup.md#networks-and-faucets).
+```text
+http://127.0.0.1:5000
+```
 
-## Judging
+---
 
-| Criterion | Marks | What judges look for |
-| --- | ---: | --- |
-| Working prototype & codebase | 30 | Live demo works end to end on a testnet; transactions visible on the explorer; the repo's code is what runs |
-| Blockchain | 25 | The chain is needed, not decorative; sensible on-chain / off-chain split; contract verified |
-| Technical quality (GitHub, README, smart contract) | 15 | Clean public repo with no secrets; complete README; readable, commented contract |
-| Pitch and Q&A | 15 | How well you explain the given problem statement and your solution, on time; every member answers questions about their part |
-| Innovation | 10 | A fresh angle; AI or other integrations that add real value |
-| UI / UX | 5 | Easy to follow; clear transaction feedback |
-| **Total** | **100** | |
+# 📡 Backend API
 
-## Demo day must-haves
+Important API endpoints include:
 
-- [ ] Frontend deployed and opens on a phone, on mobile data
-- [ ] Backend awake: open `/health` just before you present
-- [ ] Database connected and environment variables set on the host, not only on your laptop
-- [ ] Full flow tested 30 minutes before your slot
-- [ ] Demo wallet and backend wallet both hold test tokens
-- [ ] Local backup running, and a 1–2 minute backup video saved offline
-- [ ] Phone hotspot ready in case the Wi-Fi drops
+### Health
 
-Full checklist, pitch structure and likely judge questions: [docs/05-pitch-and-judging.md](docs/05-pitch-and-judging.md).
+```text
+GET /health
+```
 
-## Submit
+### Flight Information
 
-Public GitHub repo · contract address with its explorer link · live frontend URL · demo video link · slides as PDF · team name, members and domain. **Where and when to submit is announced on Day 1.**
+```text
+GET /api/flights/<flight_number>
+POST /api/flights
+```
 
-## Detailed guides
+### Oracle
 
-| Guide | PDF | Read it when |
-| --- | --- | --- |
-| [01 · Setup and networks](docs/01-setup.md) | [PDF](docs/pdf/01-setup.pdf) | Tonight: laptop, wallet, accounts, test tokens; choosing and switching testnets |
-| [02 · Build](docs/02-build.md) | [PDF](docs/pdf/02-build.pdf) | Day 2: how the starter works, step by step with screenshots, AI prompt templates |
-| [03 · Deploy and security](docs/03-deploy-and-security.md) | [PDF](docs/pdf/03-deploy-and-security.pdf) | Putting it online for free (Neon / Supabase, Render, Vercel, UptimeRobot) and keeping keys safe |
-| [04 · Troubleshooting](docs/04-troubleshooting.md) | [PDF](docs/pdf/04-troubleshooting.pdf) | Something broke |
-| [05 · Pitch and judging](docs/05-pitch-and-judging.md) | [PDF](docs/pdf/05-pitch-and-judging.pdf) | Day 3 prep: criteria, pitch, demo-day and submission checklists |
+```text
+POST /api/oracle/update-delay
+```
+
+### Policies
+
+```text
+GET /api/policies
+GET /api/policies/<policy_id>
+```
+
+### Payout
+
+```text
+POST /api/claims/<policy_id>/payout
+```
+
+### AI Risk Assessment
+
+```text
+POST /api/ai/risk
+```
+
+### Feedback
+
+```text
+POST /api/feedback
+GET /api/feedback
+```
+
+### Transaction
+
+```text
+GET /api/transactions/<tx_hash>
+```
+
+---
+
+# 🔮 Future Improvements
+
+The current hackathon implementation can be extended with:
+
+- Real-time airline flight APIs
+- Production-grade decentralized oracles
+- Multiple independent oracle providers
+- AI-based dynamic premium pricing
+- Tiered payout models
+- More insurance plans
+- Mobile application
+- Flight status notifications
+- Policy history and analytics
+- Production-grade security audits
+- Multi-chain deployment
+
+---
+
+# ⚠️ Current Limitations
+
+The hackathon prototype has several limitations:
+
+- Flight-delay data currently uses a mock oracle.
+- Ethereum Sepolia is a testnet and not suitable for real-money insurance.
+- Blockchain transactions require network fees.
+- Flight data accuracy depends on the external data source.
+- The current implementation is a prototype and has not undergone a production security audit.
+- Production deployment would require regulatory, legal, financial, and security considerations.
+
+---
+
+# 🎥 Demo Scenario
+
+### Delayed Flight
+
+```text
+Customer purchases Standard policy
+            ↓
+Premium = 0.001 ETH
+            ↓
+Coverage = 0.005 ETH
+            ↓
+Threshold = 60 minutes
+            ↓
+Oracle reports 90-minute delay
+            ↓
+90 >= 60
+            ↓
+Policy becomes eligible
+            ↓
+Payout processed
+```
+
+### On-Time / Below Threshold Flight
+
+```text
+Customer purchases policy
+            ↓
+Threshold = 60 minutes
+            ↓
+Actual delay = 30 minutes
+            ↓
+30 < 60
+            ↓
+Policy is not eligible
+            ↓
+No delay-based payout
+```
+
+---
+
+# 🌟 Why FlightGuard?
+
+FlightGuard demonstrates how multiple technologies can work together to create programmable insurance:
+
+**Blockchain**  
+→ Transparent and verifiable policy logic
+
+**Smart Contracts**  
+→ Programmable insurance conditions and payout processing
+
+**Oracle**  
+→ Connects real-world flight information to blockchain
+
+**AI**  
+→ Provides additional risk assessment
+
+**Database**  
+→ Stores application-level information
+
+**Web Application**  
+→ Provides a simple interface for customers
+
+Together, these components create a transparent and condition-based flight-delay insurance workflow.
+
+---
+
+# 🏁 Conclusion
+
+FlightGuard demonstrates a blockchain-based approach to flight-delay insurance where predefined conditions can determine claim eligibility.
+
+Instead of relying entirely on manual claims processing, the platform combines:
+
+```text
+Customer
+   ↓
+Web Application
+   ↓
+MetaMask
+   ↓
+Smart Contract
+   ↓
+Oracle Flight Data
+   ↓
+Eligibility Check
+   ↓
+Payout
+```
+
+The project demonstrates how **blockchain, smart contracts, oracle data, AI, databases, and modern web technologies** can be combined to build a programmable insurance platform.
+
+---
+
+## 📚 Project Links
+
+- 🌐 **Live Application:** https://flightguard-1.onrender.com
+- 💻 **GitHub:** https://github.com/sunny347hub/flightguard
+- ⛓️ **Smart Contract:** https://sepolia.etherscan.io/address/0x5F5FCd92381888357cfD85Ed7Ad4FAE06Dc6c7e3
+- 🔧 **Backend:** https://flightguard-pznf.onrender.com
+
+---
+
+
+### ⭐ Built for INNOBLOCK 2.0
+
+**FlightGuard — Fly with confidence. Get paid when delays happen.**
